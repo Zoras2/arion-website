@@ -1,18 +1,59 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: Montserrat, sans-serif;
+    font-family: 'Montserrat', sans-serif;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&family=Montserrat:wght@100;300;400;700&display=swap');
+
+@font-face {
+    font-family: Europa;
+    src: url('../assets/fonts/Europa-Regular.ttf');
+    font-weight: normal;
+  }
+@font-face {
+    font-family: Europa;
+    src: url('../assets/fonts/Europa-Light.ttf');
+    font-weight: lighter;
+  }
+@font-face {
+    font-family: Europa;
+    src: url('../assets/fonts/Europa-Bold.otf');
+    font-weight: bold;
+  }
+
+body {
+    background-color: #282828;
+    color: #fff;
+    line-height: 1.68rem;
 }
 
 a {
     cursor: url('../assets/ponteiro-mouse.png') 2 2, pointer;
 }
 
+.page-topo {
+    position: fixed;
+    z-index: 200;
+    right: 30px;
+    bottom: 30px;
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
+    background-color: #00ffc873;
+    border-radius: 50px;
+    transition: background-color .2s;
+}
+
+.page-topo:hover {
+    background-color: #01927373;
+}
+
 .container-grid {
     height: 100vh;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 3fr 3fr 3fr 3fr 3fr 3fr 1fr;
+    grid-template-rows: 1fr 3fr 3fr 3fr 3fr 3fr 3fr 3fr;
     grid-template-areas: "header" "content-1" "content-2" "content-3" "content-4" "content-5" "content-6" "footer";
 }
 
@@ -80,35 +121,46 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: #fff;
     height: 100vh;
-    background-image: url('../assets/arion-about-bkg.png');
+    background-color: #282828ea;
     background-size: cover;
 }
 
-.content-2 .title {
-    font-size: 1.2rem;
-    font-weight: 100;
-    margin-bottom: 20px;
+.title {
+    font-family: 'Europa', sans-serif;
+    font-size: 1.4em;
+    font-weight: 300;
+    margin-bottom: 25px;
 }
 
-.content-2 .subtitle {
+.subtitle {
+    font-family: 'Europa', sans-serif;
     color: #00ffc6;
     font-size: 1.8rem;
-    font-weight: 100;
+    font-weight: 300;
     text-decoration: underline;
 }
 
 .content-2 article {
-    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 60px;
+    max-width: 80%;
+}
+
+.content-2 article p {
+    font-family: 'Lato', sans-serif;
+    text-align: left;
+    margin-bottom: 25px;
     font-size: 1.2rem;
-    font-weight: lighter;
-    line-height: 1.4rem;
+    line-height: 1.4em;
+    font-weight: 300;
 }
 
 .content-3 {
     height: 100vh;
-    background-image: url('../assets/arion-coin-spces-bkg2.png');
+    background-image: url('../assets/arion-coin-spces-bkg.png');
     background-size: cover;
 }
 
@@ -126,13 +178,33 @@ a {
 
 .content-6 {
     height: 100vh;
-    background-image: url('../assets/arion-coin-the-team-bkg2.png');
+    background-image: url('../assets/arion-coin-the-team-bkg.png');
     background-size: cover;
 }
 
 .footer {
-    height: 30vh;
-    background-color: lightslategray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    background-color: #282828ea;
+    color: #fff;
+}
+
+.footer .social-media {
+    margin-top: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.social-media img {
+    margin: 0 20px 0 20px; 
+    height: 100px;
+    width: 100px;  
 }
 
 .navbar {
@@ -217,6 +289,7 @@ a {
 
 .main-faq {
     height: 100vh;
+    font-size: 0.8rem;
     color: #fff;
     display: flex;
     flex-direction: column;
@@ -233,6 +306,8 @@ a {
 
 .main-faq h2 {
     font-weight: 100;
+    font-size: 1.1rem;
+    font-weight: 500;
     color: #00ffc6;
     text-decoration: underline;
 }
@@ -282,3 +357,24 @@ a {
   .active:after {
     content: "\2796"; /* Unicode character for "minus" sign (-) */
   }
+
+.animate-in {
+    -webkit-animation: fadeIn .3s ease-in;
+    animation: fadeIn .3s ease-in;
+}
+
+.animate-out {
+    -webkit-transition: opacity .3s ease-out;
+    transition: opacity .3s ease-out;
+    opacity: 0;
+}
+
+@-webkit-keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
